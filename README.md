@@ -51,7 +51,7 @@ Selanjutnya, dilakukan Feature Scaling menggunakan MinMaxScaler untuk menormalka
 
 Data kemudian dibagi menjadi data latih (train) dan data uji (test) dengan perbandingan 80:20 menggunakan fungsi split_data. Dengan menggunakan 80% data sebagai data latih, model dapat belajar dari sebagian besar pola dan tren dalam data yang tersedia. Hal ini membantu dalam membangun model yang lebih mampu melakukan generalisasi pada data baru. Dan dengan menyisihkan 20% data sebagai data uji, kita memiliki set data yang independen untuk menguji kinerja model yang telah dilatih. Data uji yang tidak digunakan dalam proses pelatihan memberikan ukuran yang lebih objektif tentang seberapa baik model dapat menggeneralisasi pada data yang belum pernah dilihat sebelumnya dan dapat mengidentifikasi apakah model memiliki masalah overfitting atau tidak.
 
-![image](https://github.com/nadyanvl/StockPricePredictionLSTM/blob/main/assets/Grafik%20Split%20Data.png)
+![image](https://raw.githubusercontent.com/nadyanvl/StockPricePredictionLSTM/main/assets/Grafik%20Split%20Data.png)
 Gambar 2. Grafik pembagian data pelatihan (80%0 dan data uji (20%)
 
 ## Modeling
@@ -60,7 +60,7 @@ Proyek ini menggunakan model LSTM (Long Short-Term Memory) untuk memprediksi har
 Dalam model LSTM yang dikembangkan, terdapat tiga jenis layer yang digunakan, yaitu lapisan LSTM, Dropout, dan Dense. Lapisan LSTM adalah komponen inti dari model LSTM, yang bertanggung jawab untuk memproses dan memahami data berurutan dengan memanfaatkan informasi memori jangka panjang. Lapisan Dropout digunakan untuk mengurangi overfitting dengan secara acak mengabaikan sebagian output dari lapisan sebelumnya selama proses pelatihan. Lapisan Dense, sebagai lapisan terakhir, bertanggung jawab untuk mengubah output dari lapisan sebelumnya menjadi bentuk yang sesuai dengan jumlah neuron output yang diinginkan. 
 Detail Model sebagai berikut:
 
-![image](https://github.com/nadyanvl/StockPricePredictionLSTM/blob/main/assets/Model%20UNVR.png)
+![image](https://raw.githubusercontent.com/nadyanvl/StockPricePredictionLSTM/main/assets/Model%20UNVR.png)
 Gambar 3. Detail Arsitektur Model
 
 Konfigurasi model mencakup tuning parameter seperti ukuran lapisan LSTM, dropout rate, dan jumlah neuron pada hidden layer. Proses tuning ini bertujuan untuk mencari kombinasi yang optimal untuk meningkatkan performa prediksi harga saham. Ukuran lapisan LSTM perlu dipertimbangkan dengan memperhatikan kompleksitas data dan kebutuhan pemrosesan informasi jangka panjang. Dropout rate yang tepat dapat membantu menghindari overfitting dan meningkatkan generalisasi pada data uji. Jumlah neuron pada hidden layer juga dapat mempengaruhi kemampuan model dalam mempelajari pola dan membuat prediksi yang akurat. KOmfigurasi ini digunakan setelah melakukan beberapa pengujian.
@@ -73,16 +73,16 @@ Dengan menggunakan konfigurasi model yang optimal dan proses pelatihan yang tepa
 ### Pelatihan
 Pelatihan menggunakan batch size sebesar 32 dan berlangsung selama 11 epoch. Model menggunakan EarlyStopping callback dengan kondisi berhenti jika MAE (Mean Absolute Error) mencapai nilai < 0.0001. Grafik loss dan MAE yang diperoleh saat pelatihan dapat dilihat pada Gambar 4. Grafik loss dan MAE saat pelatihan model digunakan untuk memantau kinerja pelatihan. Pada awal pelatihan, loss cenderung tinggi karena model masih belum memiliki pemahaman yang baik tentang data. Namun, seiring berjalannya epoch, loss cenderung menurun karena model mulai mempelajari pola dalam data. Grafik MAE juga menunjukkan perubahan nilai MAE yang menurun seiring dengan berjalannya epoch. MAE mengukur selisih absolut rata-rata antara nilai yang diprediksi oleh model dan nilai yang diamati.
 
-![image](https://github.com/nadyanvl/StockPricePredictionLSTM/blob/main/assets/loss%20UNVR.png)
+![image](https://raw.githubusercontent.com/nadyanvl/StockPricePredictionLSTM/main/assets/loss%20UNVR.png)
 Gambar 4. Loss dan MAE saat pelatihan
 
 ### Evaluasi
 Evaluasi model dilakukan menggunakan data uji. Prediksi harga saham dilakukan pada data uji dan hasilnya dibandingkan dengan harga saham aktual, serta dilakukan plotting grafik harga saham aktual dan harga saham yang diprediksi.
 
-![image](https://github.com/nadyanvl/StockPricePredictionLSTM/blob/main/assets/Prediksi%20UNVR.png)
+![image](https://raw.githubusercontent.com/nadyanvl/StockPricePredictionLSTM/main/assets/Prediksi%20UNVR.png)
 Gambar 5. Hasil prediksi pada data uji 
 
-![image](https://github.com/nadyanvl/StockPricePredictionLSTM/blob/main/assets/prediksi%20UNVR%202.png)
+![image](https://raw.githubusercontent.com/nadyanvl/StockPricePredictionLSTM/main/assets/prediksi%20UNVR%202.png)
 Gambar 6. Hasil prediksi pada data uji menggunakan seluruh data dengan nilai harga sebenarnya
 
 Beberapa metrik evaluasi digunakan untuk mengukur performa model prediksi harga saham seperti Mean Absolute Error (MAE), Root Mean Square Error (RMSE), dan Mean Absolute Percentage Error (MAPE). 
