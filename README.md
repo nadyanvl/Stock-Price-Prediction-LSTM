@@ -18,7 +18,8 @@ Dengan menggunakan model prediksi yang akurat, investor dapat memperoleh wawasan
 Secara keseluruhan, penggunaan model prediksi harga saham yang akurat memiliki dampak positif yang signifikan. Investor dapat membuat keputusan investasi yang lebih cerdas, mengendalikan risiko dengan lebih baik, dan meningkatkan potensi keuntungan dalam pasar saham. Selain itu, hal ini juga meningkatkan kepercayaan investor terhadap keputusan investasi mereka, membantu mereka mencapai tujuan investasi, dan meningkatkan hasil investasi secara keseluruhan.
 
 ### Problem Statements
-Investor seringkali sulit memprediksi harga saham (contoh: Unilever Indonesia) di masa depan, yang membuat mereka kesulitan dalam mengambil keputusan investasi. Pasar saham seringkali berfluktuasi dengan cepat dan banyak faktor yang memengaruhi harga saham, sehingga sulit untuk membuat prediksi yang akurat. Oleh karena itu, dibutuhkan pendekatan yang dapat membantu investor dalam memprediksi harga saham Unilever Indonesia dengan lebih baik.
+- Bagaimana cara mengembangkan model prediksi harga saham yang akurat menggunakan metode LSTM agar dapat membantu investor dalam mengambil keputusan investasi yang lebih baik berdasarkan prediksi harga saham yang akurat?
+- Bagaimana cara membantu investor memprediksi harga saham Unilever Indonesia di masa depan dengan lebih baik?
 
 ### Goals
 - Mengembangkan model prediksi harga saham yang akurat menggunakan metode LSTM.
