@@ -58,12 +58,8 @@ Gambar 2. Grafik pembagian data pelatihan (80%0 dan data uji (20%)
 Proyek ini menggunakan model LSTM (Long Short-Term Memory) untuk memprediksi harga saham Unilever Indonesia. Model ini dikembangkan menggunakan TensorFlow dengan Sequential API. LSTM adalah jenis arsitektur jaringan saraf rekurensi (RNN) yang secara khusus dirancang untuk memproses data berurutan, seperti data harga saham. Keunggulan LSTM terletak pada kemampuannya dalam menangani masalah memori jangka panjang, di mana ia dapat mengingat dan menggunakan informasi masa lalu untuk memprediksi masa depan. Dalam LSTM, terdapat sel memori yang menggantikan neuron tradisional di lapisan tersembunyi jaringan. Dengan adanya sel memori ini, jaringan mampu menghubungkan informasi jarak jauh dalam urutan waktu, memungkinkan pemahaman yang dinamis terhadap struktur data dari waktu ke waktu, serta memberikan kemampuan prediksi yang lebih akurat.
 
 Dalam model LSTM yang dikembangkan, terdapat tiga jenis layer yang digunakan, yaitu lapisan LSTM, Dropout, dan Dense. Lapisan LSTM adalah komponen inti dari model LSTM, yang bertanggung jawab untuk memproses dan memahami data berurutan dengan memanfaatkan informasi memori jangka panjang. Lapisan Dropout digunakan untuk mengurangi overfitting dengan secara acak mengabaikan sebagian output dari lapisan sebelumnya selama proses pelatihan. Lapisan Dense, sebagai lapisan terakhir, bertanggung jawab untuk mengubah output dari lapisan sebelumnya menjadi bentuk yang sesuai dengan jumlah neuron output yang diinginkan. 
-Detail Model sebagai berikut:
 
-![image](https://raw.githubusercontent.com/nadyanvl/StockPricePredictionLSTM/main/assets/Model%20UNVR.png)
-Gambar 3. Detail Arsitektur Model
-
-Konfigurasi model mencakup tuning parameter seperti ukuran lapisan LSTM, dropout rate, dan jumlah neuron pada hidden layer. Proses tuning ini bertujuan untuk mencari kombinasi yang optimal untuk meningkatkan performa prediksi harga saham. Ukuran lapisan LSTM perlu dipertimbangkan dengan memperhatikan kompleksitas data dan kebutuhan pemrosesan informasi jangka panjang. Dropout rate yang tepat dapat membantu menghindari overfitting dan meningkatkan generalisasi pada data uji. Jumlah neuron pada hidden layer juga dapat mempengaruhi kemampuan model dalam mempelajari pola dan membuat prediksi yang akurat. KOmfigurasi ini digunakan setelah melakukan beberapa pengujian.
+Konfigurasi model mencakup tuning parameter seperti ukuran lapisan LSTM, dropout rate, dan jumlah neuron pada hidden layer. Proses tuning ini bertujuan untuk mencari kombinasi yang optimal untuk meningkatkan performa prediksi harga saham. Ukuran lapisan LSTM perlu dipertimbangkan dengan memperhatikan kompleksitas data dan kebutuhan pemrosesan informasi jangka panjang. Dropout rate yang tepat dapat membantu menghindari overfitting dan meningkatkan generalisasi pada data uji. Jumlah neuron pada hidden layer juga dapat mempengaruhi kemampuan model dalam mempelajari pola dan membuat prediksi yang akurat. Konfigurasi ini digunakan setelah melakukan beberapa pengujian.
 
 Proses pelatihan model melibatkan kompilasi model menggunakan optimizer Adam dengan learning rate 0.001 dan loss function Huber. Optimizer Adam digunakan untuk mengoptimalkan proses pelatihan dengan mengatur laju pembelajaran adaptif. Loss function Huber digunakan sebagai metrik evaluasi untuk mengukur kesalahan prediksi model. Callback EarlyStopping digunakan untuk menghentikan pelatihan jika mean absolute error (mae) pada data validasi sudah mencapai tingkat yang cukup kecil, sehingga mencegah model dari overfitting.
 
@@ -71,19 +67,19 @@ Dengan menggunakan konfigurasi model yang optimal dan proses pelatihan yang tepa
 
 ## Evaluation
 ### Pelatihan
-Pelatihan menggunakan batch size sebesar 32 dan berlangsung selama 11 epoch. Model menggunakan EarlyStopping callback dengan kondisi berhenti jika MAE (Mean Absolute Error) mencapai nilai < 0.0001. Grafik loss dan MAE yang diperoleh saat pelatihan dapat dilihat pada Gambar 4. Grafik loss dan MAE saat pelatihan model digunakan untuk memantau kinerja pelatihan. Pada awal pelatihan, loss cenderung tinggi karena model masih belum memiliki pemahaman yang baik tentang data. Namun, seiring berjalannya epoch, loss cenderung menurun karena model mulai mempelajari pola dalam data. Grafik MAE juga menunjukkan perubahan nilai MAE yang menurun seiring dengan berjalannya epoch. MAE mengukur selisih absolut rata-rata antara nilai yang diprediksi oleh model dan nilai yang diamati.
+Pelatihan menggunakan batch size sebesar 32 dan berlangsung selama 11 epoch. Model menggunakan EarlyStopping callback dengan kondisi berhenti jika MAE (Mean Absolute Error) mencapai nilai < 0.0001. Grafik loss dan MAE yang diperoleh saat pelatihan dapat dilihat pada Gambar 3. Grafik loss dan MAE saat pelatihan model digunakan untuk memantau kinerja pelatihan. Pada awal pelatihan, loss cenderung tinggi karena model masih belum memiliki pemahaman yang baik tentang data. Namun, seiring berjalannya epoch, loss cenderung menurun karena model mulai mempelajari pola dalam data. Grafik MAE juga menunjukkan perubahan nilai MAE yang menurun seiring dengan berjalannya epoch. MAE mengukur selisih absolut rata-rata antara nilai yang diprediksi oleh model dan nilai yang diamati.
 
 ![image](https://raw.githubusercontent.com/nadyanvl/StockPricePredictionLSTM/main/assets/loss%20UNVR.png)
-Gambar 4. Loss dan MAE saat pelatihan
+Gambar 3. Loss dan MAE saat pelatihan
 
 ### Evaluasi
 Evaluasi model dilakukan menggunakan data uji. Prediksi harga saham dilakukan pada data uji dan hasilnya dibandingkan dengan harga saham aktual, serta dilakukan plotting grafik harga saham aktual dan harga saham yang diprediksi.
 
 ![image](https://raw.githubusercontent.com/nadyanvl/StockPricePredictionLSTM/main/assets/Prediksi%20UNVR.png)
-Gambar 5. Hasil prediksi pada data uji 
+Gambar 4. Hasil prediksi pada data uji 
 
 ![image](https://raw.githubusercontent.com/nadyanvl/StockPricePredictionLSTM/main/assets/prediksi%20UNVR%202.png)
-Gambar 6. Hasil prediksi pada data uji menggunakan seluruh data dengan nilai harga sebenarnya
+Gambar 5. Hasil prediksi pada data uji menggunakan seluruh data dengan nilai harga sebenarnya
 
 Beberapa metrik evaluasi digunakan untuk mengukur performa model prediksi harga saham seperti Mean Absolute Error (MAE), Root Mean Square Error (RMSE), dan Mean Absolute Percentage Error (MAPE). 
 
