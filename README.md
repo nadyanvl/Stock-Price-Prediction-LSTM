@@ -41,7 +41,7 @@ Dataset yang digunakan berasal dari  [Yahoo Finance Dataset](https://finance.yah
 
 Pada proyek ini, fokus prediksi akan difokuskan pada harga Close saham. Model LSTM akan dilatih menggunakan data historis ini untuk memprediksi harga Close saham di masa depan pada data uji. Grafik dari harga Close saham dapat dilihat pada Gambar 1. untuk melihat pergerakan harga seiring waktu dan membantu dalam melihat tren dan pola pergerakan harga saham perusahaan.
 
-![image](https://github.com/nadyanvl/StockPricePredictionLSTM/blob/main/assets/Grafik%20UNVR.png)
+![image](https://raw.githubusercontent.com/nadyanvl/StockPricePredictionLSTM/main/assets/Grafik%20UNVR.png)
 Gambar 1. Grafik pergerakan harga close saham Unilever Indonesia dari Januari 2005 hingga Juni 2023
 
 ## Data Preparation
